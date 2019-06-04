@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Gallery</string>
+
+    <string name="client_id">832cbf3524754e0eaa8be3eb4b6c8847</string>
+    <string name="redirect_url">https://instagram.com/</string>
+    <string name="base_url">https://api.instagram.com/</string>
+
+
 </resources>
