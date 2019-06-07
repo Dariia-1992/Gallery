@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AuthenticationDialog.AuthenticationListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,5 +21,10 @@ public class MainActivity extends AppCompatActivity {
                 authenticationDialog.show();
             }
         });
+    }
+
+    @Override
+    public void onTokenReceived(String authentication_token) {
+
     }
 }
