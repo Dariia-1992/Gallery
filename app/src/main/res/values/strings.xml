@@ -4,6 +4,7 @@
     <string name="client_id">832cbf3524754e0eaa8be3eb4b6c8847</string>
     <string name="redirect_url">https://instagram.com/</string>
     <string name="base_url">https://api.instagram.com/</string>
-
+    <string name="get_user_info_url">https://api.instagram.com/v1/users/self/?access_token=</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
 
 </resources>

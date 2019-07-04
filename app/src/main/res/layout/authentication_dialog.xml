@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<HorizontalScrollView
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/auth_dialog"
     android:layout_width="match_parent"
@@ -18,4 +18,4 @@
         </WebView>
     </LinearLayout>
 
-</HorizontalScrollView>
+</ScrollView>

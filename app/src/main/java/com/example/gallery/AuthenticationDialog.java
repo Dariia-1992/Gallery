@@ -2,14 +2,14 @@ package com.example.gallery;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
+import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import androidx.annotation.NonNull;
 
 public class AuthenticationDialog extends Dialog {
 
@@ -39,6 +39,9 @@ public class AuthenticationDialog extends Dialog {
 
         WebView webView = findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
+        webView.clearCache(true);
+        webView.clearHistory();
+        //webView.loadUrl("");
         webView.loadUrl(request_url);
         WebViewClient webClient = new WebViewClient(){
             //при открытии страницы с адресом redirect_url диалог закрывается, пользователь вошел, можно получить токен доступа
@@ -59,7 +62,13 @@ public class AuthenticationDialog extends Dialog {
                     Uri uri = Uri.EMPTY.parse(url);
                     String access_token = uri.getEncodedFragment();
                     access_token = access_token.substring(access_token.lastIndexOf("=") + 1);
+                    Log.e("access_token", access_token);
                     listener.onTokenReceived(access_token);
+                    dismiss();
+                }
+                else if (url.contains("?error")){
+                    Log.e("access_token", "getting error fetching access token");
+                    dismiss();
                 }
             }
         };
